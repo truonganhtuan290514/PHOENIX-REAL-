@@ -1,0 +1,87 @@
+/* Reset cơ bản để các trình duyệt hiển thị đồng đều */
+body {
+    display: flex;
+    justify-content: center; /* Căn giữa thanh menu theo chiều ngang */
+    padding: 20px;           /* Tạo khoảng cách an toàn với các cạnh màn hình */
+    background-color: #f4f1e8; /* Nền sáng ấm hợp với logo vàng */
+}
+
+* {
+    box-sizing: border-box; /* Tính cả padding và viền vào kích thước phần tử */
+    margin: 0;              /* Bỏ khoảng cách mặc định bên ngoài */
+    padding: 0;             /* Bỏ khoảng cách mặc định bên trong */
+}
+
+.container_dad {
+    position: relative; /* Làm mốc để đặt nhóm nút chính giữa thanh */
+    display: flex; /* Đặt logo và menu nằm cùng một hàng */
+    align-items: center; /* Căn logo và menu giữa theo chiều dọc */
+    justify-content: space-between; /* Đẩy logo và menu về hai phía */
+    gap: 30px; /* Khoảng cách tối thiểu giữa logo và menu */
+    padding: 18px 30px; /* Khoảng trống bên trong thanh menu */
+    background: linear-gradient(115deg, #fff9e9, #ffefc3); /* Nền kem vàng dịu */
+    border: 1px solid #e5bd55; /* Viền vàng theo logo */
+    box-shadow: 0 10px 28px rgba(113, 83, 20, 0.12), 0 0 14px rgba(240, 196, 77, 0.25); /* Bóng sáng nhẹ */
+    border-radius: 18px; /* Bo tròn góc thanh menu */
+    width: min(1500px, calc(100vw - 40px)); /* Thanh dài, nhưng vừa với màn hình */
+    height: 150px; /* Chiều cao thanh menu */
+}
+
+/* Chọn ảnh logo nằm bên trong phần tử có class logo */
+.logo {
+    width: 100px; /* Chiều rộng khung logo */
+    height: 100px; /* Chiều cao khung logo */
+    flex-shrink: 0; /* Không cho khung logo bị co nhỏ */
+    overflow: hidden; /* Cắt phần ảnh nằm ngoài khung */
+    background: transparent; /* Để ảnh logo tự hiển thị vòng viền của nó */
+    border-radius: 50%; /* Biến khung vuông thành hình tròn */
+    box-shadow: 0 5px 14px rgba(47, 36, 12, 0.2); /* Bóng mềm giúp logo nổi nhẹ */
+}
+
+.logo img {
+    display: block; /* Bỏ khoảng trống thừa dưới ảnh */
+    width: 100%; /* Cho ảnh rộng bằng khung */
+    height: 100%; /* Cho ảnh cao bằng khung */
+    border-radius: 50%; /* Cắt ảnh thành hình tròn */
+    clip-path: circle(50%); /* Ép cắt ảnh theo hình tròn */
+    object-fit: cover; /* Phủ kín khung mà không làm méo ảnh */
+    object-position: center; /* Giữ tâm logo ở giữa khung */
+}
+    
+.menu {
+    display: flex; /* Xếp các nút trên cùng một hàng */
+    position: absolute; /* Tách nhóm nút khỏi vị trí của logo */
+    top: 50%; /* Đặt nhóm nút giữa theo chiều dọc */
+    left: 50%; /* Đặt điểm giữa nhóm nút vào giữa thanh */
+    justify-content: center; /* Căn các nút vào giữa vùng menu */
+    gap: 14px; /* Khoảng cách giữa các nút */
+    transform: translate(-50%, -50%); /* Căn chính xác tâm nhóm nút */
+}
+
+/* Chọn các thẻ button nằm bên trong phần menu */
+.menu button {
+    background-color: transparent; /* Trong suốt để hòa vào nền thanh */
+    color: #35695f; /* Chữ xanh ngọc tạo điểm nhấn tươi vui */
+    padding: 12px 16px; /* Khoảng trống quanh chữ: trên/dưới rồi trái/phải */
+    font-size: 22px; /* Kích thước chữ */
+    font-weight: bold; /* In đậm chữ */
+    cursor: pointer; /* Hiện hình bàn tay khi rê chuột */
+    transition: background 0.22s, color 0.22s, box-shadow 0.22s, transform 0.22s; /* Hiệu ứng mượt */
+    height: 70px; /* Chiều cao nút */
+    width: 165px; /* Chiều rộng nút */
+    border: none; /* Không có viền khi chưa rê chuột */
+    border-radius: 10px; /* Bo tròn góc nút */
+}
+
+/* Hiệu ứng khi rê chuột hoặc dùng bàn phím */
+.menu button:hover,
+.menu button:focus-visible {
+    background: linear-gradient(135deg, #ffe77a, #ffb86b); /* Vàng cam sáng khi rê chuột */
+    color: #604316; /* Chữ nâu đậm dễ đọc */
+    box-shadow: 0 8px 18px rgba(184, 127, 24, 0.25); /* Bóng ấm tạo cảm giác nổi */
+    transform: translateY(-4px) scale(1.03); /* Nâng nhẹ và phóng to nút */
+}
+
+.menu button:active {
+    transform: translateY(-1px) scale(0.98); /* Thu nhẹ nút khi đang được bấm */
+}
